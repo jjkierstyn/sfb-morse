@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+*{
+    padding-top: .001em; /*because firefox*/
+}
+
 .main__screen{
     text-align: center;
 }
