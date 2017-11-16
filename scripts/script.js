@@ -37,8 +37,6 @@ var MORSEREFERENCE = ["A","B","C","D","E","F","G","H","I",
                     "S","T","U","V","W","X","Y","Z","1",
                     "2","3","4","5","6","7","8","9","0"];
 
-morseBtn.addEventListener("mousedown", function(e){morseBtnDown(e);});
-morseBtn.addEventListener("mouseup", function(e){morseBtnUp(e);});
 morseBtn.addEventListener("touchstart", function(e){morseBtnDown(e);});
 morseBtn.addEventListener("touchend",  function(e){morseBtnUp(e);});
 
