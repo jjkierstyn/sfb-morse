@@ -79,7 +79,6 @@ function morseSignalOff(e){
     pressed[e.which] = 0;
 }
 
-
 function isMorse(morseStr){
     for(var i = 0; i < MORSELIST.length; i++){
         if(MORSELIST[i] == morseStr){
