@@ -1,5 +1,14 @@
 var SPACE = 32;
 var TIMEUNIT = .15;
+var MORSELIST = ["01", "1000", "1010", "100", "0", "0010", "110", "0000", "00", 
+                "0111", "101", "0100", "11", "10", "111", "0110", "1101", "010", 
+                "000", "1", "001", "0001", "011", "1001", "1011", "1100", "01111", 
+                "00111", "00011", "00001", "00000", "10000", "11000", "11100", "11110", "11111"];
+var MORSEREFERENCE = ["A","B","C","D","E","F","G","H","I",
+                    "J","K","L","M","N","O","P","Q","R",
+                    "S","T","U","V","W","X","Y","Z","1",
+                    "2","3","4","5","6","7","8","9","0"];
+
 var pressed = {};
 var isPressed = false;
 var signalOff = {};
@@ -9,6 +18,7 @@ var word = "";
 var morseBtn = document.getElementById("morseBtn");
 var time = 0;
 var timer = setInterval(inputCheck, TIMEUNIT*1000);
+
 function inputCheck(){
     time += TIMEUNIT;
     // End of character
@@ -28,19 +38,22 @@ function inputCheck(){
     }
 }
 
-var MORSELIST = ["01", "1000", "1010", "100", "0", "0010", "110", "0000", "00", 
-                "0111", "101", "0100", "11", "10", "111", "0110", "1101", "010", 
-                "000", "1", "001", "0001", "011", "1001", "1011", "1100", "01111", 
-                "00111", "00011", "00001", "00000", "10000", "11000", "11100", "11110", "11111"];
-var MORSEREFERENCE = ["A","B","C","D","E","F","G","H","I",
-                    "J","K","L","M","N","O","P","Q","R",
-                    "S","T","U","V","W","X","Y","Z","1",
-                    "2","3","4","5","6","7","8","9","0"];
+addMultiEventListeners(morseBtn, "touchstart mousedown", function(e){morseSignalOn(e);});
+addMultiEventListeners(morseBtn, "touchend mouseup", function(e){morseSignalOff(e);});
 
-morseBtn.addEventListener("touchstart", function(e){morseBtnDown(e);});
-morseBtn.addEventListener("touchend",  function(e){morseBtnUp(e);});
 
-function morseBtnDown(e){
+function addMultiEventListeners(obj, types, fn){
+    var i = 0;
+    var typesArray = types.split(" ");
+    while(i < typesArray.length){
+        obj.addEventListener(typesArray[i], fn);
+        i++;
+        console.log('dum');
+    }
+
+}
+
+function morseSignalOn(e){
     if ( pressed[e.which] ) return;
     pressed[e.which] = e.timeStamp;
     var signalOffDuration = ( e.timeStamp - signalOff[e.which] ) / 1000;
@@ -49,7 +62,7 @@ function morseBtnDown(e){
     isPressed = true; 
 }
 
-function morseBtnUp(e){
+function morseSignalOff(e){
     if ( !pressed[e.which] ) return;
     var duration = ( e.timeStamp - pressed[e.which] ) / 1000;
     signalOff[e.which] = e.timeStamp;
@@ -65,6 +78,7 @@ function morseBtnUp(e){
     isPressed = false;
     pressed[e.which] = 0;
 }
+
 
 function isMorse(morseStr){
     for(var i = 0; i < MORSELIST.length; i++){
