@@ -6,6 +6,7 @@ var signalOff = {};
 var spaced = true;
 var character = "";
 var word = "";
+//edit
 var morseBtn = document.getElementById("morseBtn");
 var time = 0;
 var timer = setInterval(inputCheck, TIMEUNIT*1000);
