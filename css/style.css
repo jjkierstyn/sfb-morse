@@ -3,8 +3,23 @@
 *{
     padding-top: .001em; /*because firefox*/
 }
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow: hidden;
+}
 
-.main__screen{
+.morse__page{
+    width: 100%;
     text-align: center;
     align-content: center;
+}
+
+.morse__input{
+    width: 50%;
+    height: 100px;
+    font-size: 5em;
 }

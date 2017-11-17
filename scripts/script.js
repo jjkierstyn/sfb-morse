@@ -1,5 +1,5 @@
 var SPACE = 32;
-var TIMEUNIT = .15;
+var TIMEUNIT = .20;
 var MORSELIST = ["01", "1000", "1010", "100", "0", "0010", "110", "0000", "00", 
                 "0111", "101", "0100", "11", "10", "111", "0110", "1101", "010", 
                 "000", "1", "001", "0001", "011", "1001", "1011", "1100", "01111", 
@@ -24,7 +24,6 @@ function inputCheck(){
     // End of character
     if( time > (TIMEUNIT * 3) && time < (TIMEUNIT * 7) && !isPressed){
             if(isMorse(character)){
-                character = "";
                 time = 0;
             }
     }
@@ -48,12 +47,12 @@ function addMultiEventListeners(obj, types, fn){
     while(i < typesArray.length){
         obj.addEventListener(typesArray[i], fn);
         i++;
-        console.log('dum');
     }
 
 }
 
 function morseSignalOn(e){
+    e.preventDefault();
     if ( pressed[e.which] ) return;
     pressed[e.which] = e.timeStamp;
     var signalOffDuration = ( e.timeStamp - signalOff[e.which] ) / 1000;
@@ -63,6 +62,7 @@ function morseSignalOn(e){
 }
 
 function morseSignalOff(e){
+    e.preventDefault();
     if ( !pressed[e.which] ) return;
     var duration = ( e.timeStamp - pressed[e.which] ) / 1000;
     signalOff[e.which] = e.timeStamp;
@@ -85,6 +85,8 @@ function isMorse(morseStr){
         if(MORSELIST[i] == morseStr){
             word += MORSEREFERENCE[i];
             spaced = false;
+            character = "";
+            document.querySelector("input").placeholder = word;
             return true;
         }
     }
