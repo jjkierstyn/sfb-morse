@@ -1,5 +1,5 @@
 var SPACE = 32;
-var TIMEUNIT = .20;
+var TIMEUNIT = .15;
 var MORSELIST = ["01", "1000", "1010", "100", "0", "0010", "110", "0000", "00", 
                 "0111", "101", "0100", "11", "10", "111", "0110", "1101", "010", 
                 "000", "1", "001", "0001", "011", "1001", "1011", "1100", "01111", 
@@ -8,7 +8,7 @@ var MORSEREFERENCE = ["A","B","C","D","E","F","G","H","I",
                     "J","K","L","M","N","O","P","Q","R",
                     "S","T","U","V","W","X","Y","Z","1",
                     "2","3","4","5","6","7","8","9","0"];
-
+var INPUTTEXT = document.getElementById("morseInput");
 var pressed = {};
 var isPressed = false;
 var signalOff = {};
@@ -70,10 +70,10 @@ function morseSignalOff(e){
         // Dot or dash
         if( duration < TIMEUNIT * 3){
             character += "0";
-            document.querySelector("input").placeholder += '.';
+            INPUTTEXT.innerHTML += '.';
         }else{
             character += "1";
-            document.querySelector("input").placeholder +="_";
+            INPUTTEXT.innerHTML +="_";
         }
     isPressed = false;
     pressed[e.which] = 0;
@@ -86,16 +86,17 @@ function isMorse(morseStr){
             word += MORSEREFERENCE[i];
             spaced = false;
             character = "";
-            document.querySelector("input").placeholder = word;
+            INPUTTEXT.innerHTML = word;
+            INPUTTEXT.innerHTML = word;
             return true;
         }
     }
     character = "";
-    document.querySelector("input").placeholder = word;
+    INPUTTEXT.innerHTML = word;
     return false;
 }
 
-document.getElementById("clearBtn").addEventListener("click", function(){word = ""; character=""; document.querySelector("input").placeholder = "";});
+document.getElementById("clearBtn").addEventListener("click", function(){word = ""; character=""; INPUTTEXT.innerHTML = "";});
 
 // dot duration is one time unit
 // dash duration is three time units

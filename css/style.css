@@ -18,8 +18,17 @@ html, body, {
     align-content: center;
 }
 
+p{
+    font-size: 3em;
+position: relative;
+margin-left: 10px;
+transform: translateY(-50%); 
+}
+
 .morse__input{
     width: 50%;
-    height: 100px;
-    font-size: 5em;
+    height: 90px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: green;
 }
