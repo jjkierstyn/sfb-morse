@@ -12,12 +12,17 @@ var MORSE = [
     {char:"Y", morseString:"1011"}, {char:"Z", morseString:"1100"}, {char:"1", morseString:"01111"}, 
     {char:"2", morseString:"00111"}, {char:"3", morseString:"00011"}, {char:"4", morseString:"00001"}, 
     {char:"5", morseString:"00000"}, {char:"6", morseString:"10000"}, {char:"7", morseString:"11000"}, 
+<<<<<<< HEAD
     {char:"8", morseString:"11100"}, {char:"9", morseString:"11110"}, {char:"0", morseString:"11111"},
     {char: ".", morseString: "010101"}, {char: ",", morseString: "110011"}, {char: ":", morseString: "111000"},
     {char: "?", morseString: "001100"}, {char: "'", morseString: "011110"}, {char: "-", morseString: "100001"},
     {char: "/", morseString: "10010"}, {char: '"', morseString: "010010"}, {char: "@", morseString: "011010"},
     {char: "=", morseString: "10001"}, {char: "!", morseString: "1110"}
 ];
+=======
+    {char:"8", morseString:"11100"}, {char:"9", morseString:"11110"}, {char:"0", morseString:"11111"} 
+]
+>>>>>>> ad996544db3bfc8c94ff9061b3dd87376c6c04de
 var INPUTTEXT = document.getElementById("morseInput");
 var morseBtn = document.getElementById("morseBtn");
 var pressed = {};
@@ -87,6 +92,10 @@ function morseSignalOff(e){
     morseBtn.style.backgroundColor = "green";
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad996544db3bfc8c94ff9061b3dd87376c6c04de
 function isMorse(morseInputStr){
     for(var i = 0; i < MORSE.length; i++){
         if(MORSE[i].morseString == morseInputStr){
