@@ -3,26 +3,30 @@
 *{
     padding-top: .001em; /*because firefox*/
 }
-html, body, {
+html, body{
     position:fixed;
     top:0;
     bottom:0;
     left:0;
     right:0;
-    overflow: hidden;
+}
+
+li{
+    list-style: none;
 }
 
 .morse__page{
-    width: 100%;
+    width: 60%;
+    display: inline-block;
     text-align: center;
     align-content: center;
 }
 
 p{
     font-size: 3em;
-position: relative;
-margin-left: 10px;
-transform: translateY(-50%); 
+    position: relative;
+    margin-left: 10px;
+    transform: translateY(-50%); 
 }
 
 .morse__input{
@@ -31,4 +35,10 @@ transform: translateY(-50%);
     text-align: left;
     margin: 0 auto;
     background-color: green;
+}
+
+.morse__code__cheatsheet{
+    width: 30%;
+    display: inline-block;
+    text-align: left;
 }

@@ -1,21 +1,31 @@
 var SPACE = 32;
 var TIMEUNIT = .15;
-var MORSELIST = ["01", "1000", "1010", "100", "0", "0010", "110", "0000", "00", 
-                "0111", "101", "0100", "11", "10", "111", "0110", "1101", "010", 
-                "000", "1", "001", "0001", "011", "1001", "1011", "1100", "01111", 
-                "00111", "00011", "00001", "00000", "10000", "11000", "11100", "11110", "11111"];
-var MORSEREFERENCE = ["A","B","C","D","E","F","G","H","I",
-                    "J","K","L","M","N","O","P","Q","R",
-                    "S","T","U","V","W","X","Y","Z","1",
-                    "2","3","4","5","6","7","8","9","0"];
+var MORSE = [
+    {char:"A", morseString:"01"}, {char:"B", morseString:"1000"}, {char:"C", morseString:"1010"}, 
+    {char:"D", morseString:"100"}, {char:"E", morseString:"0"}, {char:"F", morseString:"0010"}, 
+    {char:"G", morseString:"110"}, {char:"H", morseString:"0000"}, {char:"I", morseString:"00"}, 
+    {char:"J", morseString:"0111"}, {char:"K", morseString:"101"}, {char:"L", morseString:"0100"}, 
+    {char:"M", morseString:"11"}, {char:"N", morseString:"10"}, {char:"O", morseString:"111"}, 
+    {char:"P", morseString:"0110"}, {char:"Q", morseString:"1101"}, {char:"R", morseString:"010"}, 
+    {char:"S", morseString:"000"}, {char:"T", morseString:"1"}, {char:"U", morseString:"001"}, 
+    {char:"V", morseString:"0001"}, {char:"W", morseString:"011"}, {char:"X", morseString:"1001"}, 
+    {char:"Y", morseString:"1011"}, {char:"Z", morseString:"1100"}, {char:"1", morseString:"01111"}, 
+    {char:"2", morseString:"00111"}, {char:"3", morseString:"00011"}, {char:"4", morseString:"00001"}, 
+    {char:"5", morseString:"00000"}, {char:"6", morseString:"10000"}, {char:"7", morseString:"11000"}, 
+    {char:"8", morseString:"11100"}, {char:"9", morseString:"11110"}, {char:"0", morseString:"11111"},
+    {char: ".", morseString: "010101"}, {char: ",", morseString: "110011"}, {char: ":", morseString: "111000"},
+    {char: "?", morseString: "001100"}, {char: "'", morseString: "011110"}, {char: "-", morseString: "100001"},
+    {char: "/", morseString: "10010"}, {char: '"', morseString: "010010"}, {char: "@", morseString: "011010"},
+    {char: "=", morseString: "10001"}, {char: "!", morseString: "1110"}
+];
 var INPUTTEXT = document.getElementById("morseInput");
+var morseBtn = document.getElementById("morseBtn");
 var pressed = {};
 var isPressed = false;
 var signalOff = {};
 var spaced = true;
 var character = "";
 var word = "";
-var morseBtn = document.getElementById("morseBtn");
 var time = 0;
 var timer = setInterval(inputCheck, TIMEUNIT*1000);
 
@@ -40,17 +50,6 @@ function inputCheck(){
 addMultiEventListeners(morseBtn, "touchstart mousedown", function(e){morseSignalOn(e);});
 addMultiEventListeners(morseBtn, "touchend mouseup", function(e){morseSignalOff(e);});
 
-
-function addMultiEventListeners(obj, types, fn){
-    var i = 0;
-    var typesArray = types.split(" ");
-    while(i < typesArray.length){
-        obj.addEventListener(typesArray[i], fn);
-        i++;
-    }
-
-}
-
 function morseSignalOn(e){
     e.preventDefault();
     if ( pressed[e.which] ) return;
@@ -59,6 +58,14 @@ function morseSignalOn(e){
     time = 0;
     signalOff[e.which] = 0;
     isPressed = true; 
+    morseBtn.style.backgroundColor = "red";
+}
+
+function testFunction(){
+    while(isPressed == true){
+        morseBtn.style.width += 10;
+        morseBtn.style.width += 10;
+    }
 }
 
 function morseSignalOff(e){
@@ -73,19 +80,19 @@ function morseSignalOff(e){
             INPUTTEXT.innerHTML += '.';
         }else{
             character += "1";
-            INPUTTEXT.innerHTML +="_";
+            INPUTTEXT.innerHTML +="-";
         }
     isPressed = false;
     pressed[e.which] = 0;
+    morseBtn.style.backgroundColor = "green";
 }
 
-function isMorse(morseStr){
-    for(var i = 0; i < MORSELIST.length; i++){
-        if(MORSELIST[i] == morseStr){
-            word += MORSEREFERENCE[i];
+function isMorse(morseInputStr){
+    for(var i = 0; i < MORSE.length; i++){
+        if(MORSE[i].morseString == morseInputStr){
+            word += MORSE[i].char;
             spaced = false;
             character = "";
-            INPUTTEXT.innerHTML = word;
             INPUTTEXT.innerHTML = word;
             return true;
         }

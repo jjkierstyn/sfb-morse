@@ -3,12 +3,15 @@
 .morse__Btn{
     width: 200px;
     height: 200px;
-    
+    border-radius: 100%;
     margin: 0 auto;
     margin-top: 10px;
     background-color: green;
 }
-
+.morse__Btn:active{
+    transition:0.5s;
+    transform: scale(.95, .95);
+}
 .clear__btn{
 
     height: 100px;
