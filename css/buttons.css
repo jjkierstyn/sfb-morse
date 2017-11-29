@@ -1,18 +1,12 @@
 @charset "UTF-8";
 
 .morse__Btn{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    margin: 0 auto;
+    height: 40px;
     margin-top: 10px;
     background-color: green;
-    transition:0.5s ease-in;
-
 }
 .morse__Btn:active{
     transition:0.5s ease-in;
-    transform: scale(.95, .95);
 }
 .clear__btn{
     height: 100px;
