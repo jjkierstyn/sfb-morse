@@ -18,9 +18,9 @@ var MORSE = [
     {char: "/", morseString: "10010"}, {char: '"', morseString: "010010"}, {char: "@", morseString: "011010"},
     {char: "=", morseString: "10001"}, {char: "!", morseString: "1110"}
 ];
-var INPUTTEXT = document.getElementsByClassName("new-message");
+var INPUTTEXT = document.getElementById("new-message");
 var SPACE = 32;
-var morseBtn = document.getElementsByClassName("key");
+var morseBtn = document.getElementById("key");
 var pressed = {};
 var isPressed = false;
 var signalOff = {};
@@ -62,7 +62,6 @@ function morseSignalOn(e){
     signalOff[e.which] = 0;
     isPressed = true; 
     morseBtn.style.backgroundColor = "red";
-    console.log("test");
 }
 
 function testFunction(){
@@ -106,7 +105,7 @@ function isMorse(morseInputStr){
     return false;
 }
 
-document.getElementById("morse-input-clear").addEventListener("click", function(){word = ""; character=""; INPUTTEXT.value = "";});
+document.getElementById("morse-input-clear").addEventListener("click", function(){word = ""; character=""; INPUTTEXT.value = ""; spaced = true;});
 
 // dot duration is one time unit
 // dash duration is three time units
