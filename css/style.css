@@ -24,6 +24,7 @@ li{
     background-color: rosybrown;
     float: left;
 }
+ul{float:left;}
 
 p{
     font-size: 3em;
@@ -43,7 +44,7 @@ p{
 .morse__code__cheatsheet{
     width: 40%;
     height: 100%;
-    font-size: 1.75vh;
+    font-size: 18px;
     background-color: gray;
     float: left;
     text-align: left;

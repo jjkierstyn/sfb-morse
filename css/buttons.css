@@ -7,9 +7,11 @@
     margin: 0 auto;
     margin-top: 10px;
     background-color: green;
+    transition:0.5s ease-in;
+
 }
 .morse__Btn:active{
-    transition:0.5s;
+    transition:0.5s ease-in;
     transform: scale(.95, .95);
 }
 .clear__btn{

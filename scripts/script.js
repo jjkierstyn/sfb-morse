@@ -19,6 +19,7 @@ var MORSE = [
     {char: "=", morseString: "10001"}, {char: "!", morseString: "1110"}
 ];
 var INPUTTEXT = document.getElementById("morseInput");
+var SPACE = 32;
 var morseBtn = document.getElementById("morseBtn");
 var pressed = {};
 var isPressed = false;
@@ -49,10 +50,12 @@ function inputCheck(){
 
 addMultiEventListeners(morseBtn, "touchstart mousedown", function(e){morseSignalOn(e);});
 addMultiEventListeners(morseBtn, "touchend mouseup", function(e){morseSignalOff(e);});
+window.onkeydown = function(e){if(e.which == SPACE || e.which == 0){morseSignalOn(e)};};
+window.onkeyup = function(e){if(e.which == SPACE || e.which == 0){morseSignalOff(e)};};
 
 function morseSignalOn(e){
     e.preventDefault();
-    if ( pressed[e.which] ) return;
+    if (pressed[e.which]) return;
     pressed[e.which] = e.timeStamp;
     var signalOffDuration = ( e.timeStamp - signalOff[e.which] ) / 1000;
     time = 0;
