@@ -107,6 +107,7 @@ function isMorse(morseInputStr){
 
 document.getElementById("morse-input-clear").addEventListener("click", function(){word = ""; character=""; INPUTTEXT.value = ""; spaced = true;});
 resize();
+window.scrollTo(0,1);
 // dot duration is one time unit
 // dash duration is three time units
 // inter-element gap between the dots and dashes within a character is one unit long
