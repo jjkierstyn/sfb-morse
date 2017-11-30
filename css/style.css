@@ -27,7 +27,6 @@ ul{
 
 .app-style{   
     width: 100%;
-    max-width: 540px;
     margin: auto;
     padding: 20px;
     background-color: grey;
@@ -36,12 +35,12 @@ ul{
 }
 
 .conversation{
-    height: calc(100vh - 180px);
+    height: calc(100vh - 230px);
 }
 
 .input, .key{
     margin-top: 10px;
-    height: 20px;
+    height: 25px;
 }
 
 .cheatsheet{
