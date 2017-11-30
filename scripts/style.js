@@ -1,5 +1,6 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
+var dHeight = window.outerWidth;
 var resizedForMobile = false;
 
 function resize(){
@@ -8,6 +9,8 @@ function resize(){
         for(var i = 0; i < appStyles.length; i++){
             appStyles[i].style.maxWidth = "100%";
         }
+
+        document.getElementById("conversation").style.height = "calc(80vh - (80vh - innerHeight))";
         resizedForMobile = true;
     }else if(height<width){
         for(var i = 0; i < appStyles.length; i++){
@@ -28,7 +31,6 @@ function debounce(fn, delay) {
         }, delay);
     };
 }
-
 
 window.onresize = debounce(function(){
     width = window.innerWidth;
