@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .key{
-    background-color: rgba(150,222,25,.90);
+    background-color: rgba(0,0,00,.05);
 }
 .key:active{
     transition: .5s ease-in;

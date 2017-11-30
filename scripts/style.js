@@ -9,8 +9,6 @@ function resize(){
         for(var i = 0; i < appStyles.length; i++){
             appStyles[i].style.maxWidth = "100%";
         }
-
-        document.getElementById("conversation").style.height = "calc(80vh - (80vh - innerHeight))";
         resizedForMobile = true;
     }else if(height<width){
         for(var i = 0; i < appStyles.length; i++){
