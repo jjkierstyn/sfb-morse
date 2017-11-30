@@ -1,14 +1,8 @@
 @charset "UTF-8";
 
-.morse__Btn{
-    height: 40px;
-    margin-top: 10px;
-    background-color: green;
+.key{
+    background-color: rgba(0,0,0,0.10);
 }
-.morse__Btn:active{
-    transition:0.5s ease-in;
-}
-.clear__btn{
-    height: 100px;
-    width: 200px;
+.key:active{
+    transition: .5s ease-in;
 }

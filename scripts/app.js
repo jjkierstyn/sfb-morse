@@ -61,7 +61,7 @@ function morseSignalOn(e){
     time = 0;
     signalOff[e.which] = 0;
     isPressed = true; 
-    morseBtn.style.backgroundColor = "red";
+    morseBtn.style.backgroundColor = "rgba(0,0,0,0.20)";
 }
 
 function testFunction(){
@@ -87,7 +87,7 @@ function morseSignalOff(e){
         }
     isPressed = false;
     pressed[e.which] = 0;
-    morseBtn.style.backgroundColor = "green";
+    morseBtn.style.backgroundColor = "rgba(0,0,0,0.10)";
 }
 
 function isMorse(morseInputStr){
