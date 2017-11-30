@@ -30,16 +30,16 @@ ul{
     max-width: 600px;
     margin: auto;
     background-color: grey;
+    border: 1px solid brown;
     text-align: center;
     display: block;
 }
 
 .conversation{
-    height: calc(80vh - 20px);
+    height: 80vh;
 }
 
 .input, .key{
-    margin-top: 10px;
     height: 10vh;
 }
 
