@@ -27,20 +27,20 @@ ul{
 
 .app-style{   
     width: 100%;
+    max-width: 600px;
     margin: auto;
-    padding: 20px;
     background-color: grey;
     text-align: center;
     display: block;
 }
 
 .conversation{
-    height: calc(100vh - 230px);
+    height: calc(80vh - 20px);
 }
 
 .input, .key{
     margin-top: 10px;
-    height: 25px;
+    height: 10vh;
 }
 
 .cheatsheet{
