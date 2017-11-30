@@ -12,7 +12,7 @@ body{
     right: 0;
     left: 0;
     overflow: hidden;
-
+    font-size: 16px;
 }
 
 ul{
@@ -28,12 +28,11 @@ ul{
 .morse__app{
     border-right: 1px solid rgba(0,0,0,0.10);
     border-left: 1px solid rgba(0,0,0,0.10);
-}
-
-.menu{
     position: absolute;
-    top: 0;
-    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
 .app-style{   
@@ -45,7 +44,11 @@ ul{
     text-align: center;
     display: block;
 }
-
+.menu{
+    position: absolute;
+    top: 0;
+    height: 50px;
+}
 .conversation{
     height: 80vh;
 }
