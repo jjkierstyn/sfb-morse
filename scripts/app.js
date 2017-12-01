@@ -18,9 +18,12 @@ var MORSE = [
     {char: "/", morseString: "10010"}, {char: '"', morseString: "010010"}, {char: "@", morseString: "011010"},
     {char: "=", morseString: "10001"}, {char: "!", morseString: "1110"}
 ];
-var INPUTTEXT = document.getElementById("new-message");
-var SPACE = 32;
+var newMessageText = document.getElementById("new-message");
 var morseBtn = document.getElementById("key");
+var cheatsheetBtn = document.getElementById("cheatsheet-toggle");
+var cheatsheetBtnIsPressed = false;
+var cheatsheet = document.getElementById("cheatsheet");
+var isHidden = false;
 var pressed = {};
 var isPressed = false;
 var signalOff = {};
@@ -80,10 +83,10 @@ function morseSignalOff(e){
         // Dot or dash
         if( duration < TIMEUNIT * 3){
             character += "0";
-            INPUTTEXT.value += '.';
+            newMessageText.value += '.';
         }else{
             character += "1";
-            INPUTTEXT.value +="-";
+            newMessageText.value +="-";
         }
     isPressed = false;
     pressed[e.which] = 0;
@@ -96,16 +99,24 @@ function isMorse(morseInputStr){
             word += MORSE[i].char;
             spaced = false;
             character = "";
-            INPUTTEXT.value = word;
+            newMessageText.value = word;
             return true;
         }
     }
     character = "";
-    INPUTTEXT.value = word;
+    newMessageText.value = word;
     return false;
 }
 
-document.getElementById("morse-input-clear").addEventListener("click", function(){word = ""; character=""; INPUTTEXT.value = ""; spaced = true;});
+
+document.getElementById("morse-input-clear").addEventListener("click", function(){word = ""; character=""; newMessageText.value = ""; spaced = true;});
+cheatsheetBtn.addEventListener("click", function(){
+    if(cheatsheet.style.display != "none"){
+        cheatsheet.style.display = "none";
+    }else{
+        cheatsheet.style.display = "block";
+    }
+});
 resize();
 // dot duration is one time unit
 // dash duration is three time units

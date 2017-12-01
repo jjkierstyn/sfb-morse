@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+
+#cheatsheet-toggle, #info{
+    position: absolute;
+    top: 0;
+}
+
+#info{
+    left: 0;
+}
+
+#cheatsheet-toggle{
+    right: 0;
+}
+
 .key{
     background-color: rgba(0,0,0,.05);
 }

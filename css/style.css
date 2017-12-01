@@ -2,6 +2,8 @@
 
 *{
     padding-top: .001em; /* because firefox */
+    font-size: 16px;
+    font-family: "Roboto Slab"
 }
 
 body{
@@ -12,17 +14,17 @@ body{
     right: 0;
     left: 0;
     overflow: hidden;
-    font-size: 16px;
 }
 
-ul{
+#cheatsheet-ul{
     list-style: none;
-    -moz-column-count: 2;
+    -moz-column-count: 4;
     -moz-column-gap: 20px;
-    -webkit-column-count: 2;
+    -webkit-column-count: 4;
     -webkit-column-gap: 20px;
-    column-count: 2;
+    column-count: 4;
     column-gap: 20px;
+    margin: 0;
 }
 
 .morse__app{
@@ -47,14 +49,25 @@ ul{
 .menu{
     position: absolute;
     top: 0;
+    z-index: 500;
     height: 50px;
 }
+
+#cheatsheet-toggle{
+    position: absolute;
+
+    right: 0;
+}
+
+.conversation-container{
+    height: calc(100vh - 100px);
+}
 .conversation{
-    height: 80vh;
+
 }
 
 .input, .key{
-    height: 10vh;
+    height: 50px;
 }
 
 #new-message::placeholder{
@@ -68,9 +81,12 @@ ul{
     background-color: #fff;
     border: none;
 }
+
 .cheatsheet{
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    width: 100%;
+    text-align: left;
+    margin-top: 50px;
+    border-bottom: 1px solid rgba(0,0,0,0.10);
 }
